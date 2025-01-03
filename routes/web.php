@@ -70,7 +70,9 @@ Route::get('carts/delete/{id}', [App\Http\Controllers\CartController::class, 're
 Route::post('carts', [App\Http\Controllers\CartController::class, 'addCart']);
 
 
-Route::get('/qr', function () {
-    $currentUrl = url()->current();
-    return view('products/content', ['url' => $currentUrl]);
+Route::get('qr-product/{id}/{slug}', function ($id, $slug) {
+    // Tạo URL đầy đủ của sản phẩm
+    $productUrl = url("/san-pham/{$id}-{$slug}.html");
+    // Tạo QR code trực tiếp
+    return QrCode::size(300)->generate($productUrl);
 });

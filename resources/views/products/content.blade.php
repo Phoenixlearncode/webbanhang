@@ -175,6 +175,9 @@
 
                         <!-- - -->
                         <div class="tab-pane fade" id="information" role="tabpanel">
+                            <div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
+                                {!! QrCode::size(300)->generate(url("/san-pham/{$product->id}-{$product->slug}.html")) !!}
+                            </div>
                             <div class="row">
                                 <div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
                                     <ul class="p-lr-28 p-lr-15-sm">
